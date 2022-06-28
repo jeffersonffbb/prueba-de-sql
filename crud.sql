@@ -9,9 +9,9 @@ use colegio;
 #crear una tabla
 
 create table director(
-id int,
-nombre char(120),
-correo varchar (120),
+id int not null,
+nombre char(120) not null,
+correo varchar (120) not null,
 PRIMARY KEY (id)
 );#definimos nuestra primary key
 
@@ -38,9 +38,9 @@ select* from director where id =3;
 #crear la segunda tabla
 
 create table profesor(
-id int,
-nombre varchar(120),
-edad int ,
+id int not null,
+nombre varchar(120) not null,
+edad int not null,
 trabaja_para int,
 PRIMARY KEY (id),
 Foreign key (trabaja_para) references director(id)
@@ -60,9 +60,9 @@ select * from profesor;
 show tables;
 
 create table inspector(
-id int,
-nombre char(120),
-correo varchar (120),
+id int not null,
+nombre char(120) not null,
+correo varchar (120)not null,
 le_paga_el int,
 PRIMARY KEY (id),
 Foreign key (le_paga_el) references director(id)
@@ -76,3 +76,5 @@ insert into inspector (nombre,correo,le_paga_el) values
 	('alfredo','alfredo@gmail.com','4');
     
 select * from inspector;
+
+select* from inspector where id =3;
